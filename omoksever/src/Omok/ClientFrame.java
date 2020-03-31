@@ -318,7 +318,7 @@ public class ClientFrame extends JFrame{
 
 			try {
 
-				socket = new Socket("localhost", 10001);
+				socket = new Socket("192.168.0.13", 10001);
 
 				textArea.append("서버에 접속됐습니다.\n");
 
