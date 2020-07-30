@@ -8,3 +8,9 @@
 
 ![오목메인](https://user-images.githubusercontent.com/34128998/88884102-cfa3a580-d270-11ea-990e-7cc420ac0abe.PNG)
 
+오목 첫 화면
+
+![image](https://user-images.githubusercontent.com/34128998/88884207-08dc1580-d271-11ea-8620-feac73f079f7.png)
+
+오목 메인 화면
+
