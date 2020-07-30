@@ -6,3 +6,5 @@
 2. 다른 사람은 열린 서버 아이피을 입력하여 접속합니다.
 3. 채팅과 더불어 오목이 가능합니다.
 
+![오목메인](https://user-images.githubusercontent.com/34128998/88884102-cfa3a580-d270-11ea-990e-7cc420ac0abe.PNG)
+
