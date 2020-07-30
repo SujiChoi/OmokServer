@@ -1,91 +1,109 @@
 package Omok;
 
-import java.awt.BorderLayout;
-
-import java.awt.GridLayout;
-
-import java.awt.event.ActionEvent;
-
-import java.awt.event.ActionListener;
-
-
-
-import javax.swing.JButton;
+import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
 
+public class MainFrame {
 
+	private JFrame frame;
 
-public class MainFrame extends JFrame {
-
-	
-	public MainFrame() {
-
-		setTitle("Swing TCP Chatting Test");
-		setBounds(10, 50, 400, 250);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-		JPanel panel = new JPanel();
-		panel.setLayout(new GridLayout(0, 2));
-		JButton btnServer = new JButton("Server");
-		JButton btnClient = new JButton("Client");
-
-		
-
-		//버튼클릭 액션에 반응하기 위해 리스너 객체 생성 및 추가
-
-		btnServer.addActionListener(new ActionListener() {			
-
-			@Override
-
-			public void actionPerformed(ActionEvent e) {
-
-				//ServerFrame 객체 생성
-
-				ServerFrame frame = new ServerFrame();
-
-			}
-
-		});
-
-		btnClient.addActionListener(new ActionListener() {			
-
-			@Override
-
-			public void actionPerformed(ActionEvent e) {
-
-				//ClientFrame 객체 생성
-
-				ClientFrame frame = new ClientFrame();
-
-			}
-
-		});
-
-		
-
-		panel.add(btnServer);
-
-		panel.add(btnClient);
-
-		
-
-		add(panel, BorderLayout.CENTER);
-
-		
-
-		setVisible(true);
-
-	}
-
-
-
+	/**
+	 * Launch the application.
+	 */
 	public static void main(String[] args) {
-
-		new MainFrame();
-
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					
+					MainFrame window = new MainFrame();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
+	/**
+	 * Create the application.
+	 */
+	public MainFrame() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setTitle("오목 시작하기");
+		frame.getContentPane().setForeground(Color.WHITE);
+		frame.setBounds(100, 100, 575, 357);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("\uCD5C\uAC15\uC790\uB97C \uAC00\uB824\uB77C");
+		lblNewLabel_1.setForeground(Color.RED);
+		lblNewLabel_1.setFont(new Font("궁서체", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(216, 139, 125, 42);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JButton btnsever = new JButton("\uC11C\uBC84\uB85C \uC811\uC18D\uD558\uAE30");
+		btnsever.setBackground(Color.WHITE);
+		btnsever.setFont(new Font("굴림", Font.PLAIN, 13));
+		btnsever.setBounds(66, 201, 181, 59);
+		frame.getContentPane().add(btnsever);
+		
+		btnsever.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				ServerFrame frameA = new ServerFrame();
+				//frame.setVisible(false);
+			}
+		});
+		
+		JButton btnclient = new JButton("\uD074\uB77C\uC774\uC5B8\uD2B8\uB85C \uC811\uC18D");
+		btnclient.setBackground(Color.WHITE);
+		btnclient.setFont(new Font("굴림", Font.PLAIN, 13));
+		btnclient.setBounds(330, 201, 181, 59);
+		frame.getContentPane().add(btnclient);
+		
+		btnclient.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				Clientip frameA = new Clientip();
+				frame.setVisible(false);
+			}
+		});
+		
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.ORANGE);
+		panel.setBounds(0, 0, 559, 318);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("\uC624   \uBAA9");
+		lblNewLabel.setBounds(188, 61, 175, 58);
+		panel.add(lblNewLabel);
+		lblNewLabel.setFont(new Font("궁서체", Font.PLAIN, 50));
+		
+		frame.setVisible(true);
+	}
 }

@@ -11,9 +11,17 @@ public class Omokfunction {
 	
 	public Omokfunction() {
 	}
+	
+	public static int[][] getArr() {
+		return arr;
+	}
+
+	public static void setArr(int[][] arr) {
+		Omokfunction.arr = arr;
+	}
+
 	public static void Omokarray(){
 		arr = new int[15][15];
-		
 		for(int i=0;i<arr.length;i++) {
 			for(int j = 0; j<arr[i].length;j++) {
 				arr[i][j]= 0;
@@ -74,21 +82,21 @@ public class Omokfunction {
 		if(sam >= 2) {return sam;}
 		return 0;
 	}
-	//占쎌맄筌잞옙 (占쎈툡占쎌삋 占쎌넇占쎌뵥) (占쎄국) 
+	//위쪽 (아래 확인) (끝) 
 	public boolean winCheckUp(int x,int y) { 
 		try{
-			for(int i=y;i<y+5;i++){ // 占쎈툡占쎌삋嚥∽옙 5揶쏆뮄占� 揶쏆늿占쏙쭪占� 占쎌넇占쎌뵥 
+			for(int i=y;i<y+5;i++){  // 아래로 5개가 같은지 확인  
 				if(arr[x][y]!=arr[x][i])
 					return false;
 				}
-			// 占쎌몓 獄쎻뫗占� �굜遺얜굡 (占쎈립燁삼옙 占쎌맄揶쏉옙 揶쏆늿占쏙옙源뗰옙�뵠筌롳옙 6) (占쎈툡占쎌삋嚥∽옙 6甕곕뜆�럮揶쏉옙 揶쏆늿占� 占쎄퉳占쎌뵠筌롳옙 6)
+			// 육 방지 코드 (한칸 위가 같은색이면 6) (아래로 6번째가 같은 색이면 6)
 			if(arr[x][y] == arr[x][y-1] || arr[x][y] == arr[x][y+5]) {
 				return false;}
 			System.out.println("占쎌맄  ");
 			return true;
 		}catch(ArrayIndexOutOfBoundsException e){
 			if(y==0) {
-				for(int i=y;i<y+5;i++){ // 占쎈툡占쎌삋嚥∽옙 5揶쏆뮄占� 揶쏆늿占쏙쭪占� 占쎌넇占쎌뵥 + 占쎌몓 獄쎻뫗占�
+				for(int i=y;i<y+5;i++){ // 아래로 5개가 같은지 확인 + 육 방지
 				if(arr[x][y]!=arr[x][i])
 					return false;
 				}
@@ -97,7 +105,7 @@ public class Omokfunction {
 			return true;
 			}
 			if(y==10) {
-				for(int i=y;i<y+5;i++){ // 占쎈툡占쎌삋嚥∽옙 5揶쏆뮄占� 揶쏆늿占쏙쭪占� 占쎌넇占쎌뵥 
+				for(int i=y;i<y+5;i++){ // 아래로 5개가 같은지 확인 
 				if(arr[x][y]!=arr[x][i])
 					return false;
 				}
@@ -894,5 +902,6 @@ public class Omokfunction {
 		}
 	}
 	
+
 }
 
